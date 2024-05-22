@@ -1,0 +1,95 @@
+.link-icon {
+  width: 80px;
+  height: 80px;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: darkmagenta;
+  fill: white;
+}
+
+.link-picture {
+  border-radius: 1rem;
+}
+
+.grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 36rem);
+  justify-content: center;
+  grid-row-gap: 5rem;
+  grid-column-gap: 3rem;
+}
+
+.link-card {
+  width: 26rem;
+  height: 8rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: auto;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+[data-theme='dark'] .link-card {
+  background-color: rgb(61, 61, 61);
+}
+.link-name {
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem 0;
+  margin: 0;
+}
+.link-info-box {
+  width: 18rem;
+  text-align: center;
+  align-self: flex-start;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 1rem;
+  color: #666;
+}
+.link-info-box h3 {
+  color: #333;
+  font-weight: bold;
+}
+
+.link-info-box a {
+  text-decoration: none;
+}
+
+.link-description,
+.link-url {
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+.link-url {
+  padding-top: 1rem;
+}
+
+.link-card:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: all 0.2s;
+}
+
+[data-theme='dark'] .link-card:hover {
+  box-shadow: none;
+  outline: 2px solid rgb(201, 90, 201);
+}
+
+@media (max-width: 1224px) {
+  .grid-wrap {
+    grid-template-columns: repeat(auto-fit, 25rem);
+  }
+  .link-card {
+    width: 25rem;
+  }
+  .link-info-box {
+    width: 16rem;
+  }
+  .link-name {
+    color: rgb(155, 84, 221);
+  }
+}
