@@ -81,13 +81,13 @@
 
 @media (max-width: 1224px) {
   .grid-wrap {
-    grid-template-columns: repeat(auto-fit, 25rem);
+    grid-template-columns: repeat(auto-fit, 23rem);
   }
   .link-card {
-    width: 25rem;
+    width: 23rem;
   }
   .link-info-box {
-    width: 16rem;
+    width: 15rem;
   }
   .link-name {
     color: rgb(155, 84, 221);

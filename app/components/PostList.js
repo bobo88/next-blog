@@ -25,7 +25,9 @@ export default function PostList({ posts }) {
               <article className={styles['article']}>
                 <header>
                   <h2 className={styles['post-title']}>
-                    <Link href={`/posts/${post.title}`}>{post.title}</Link>
+                    <a href={`${post.href}`} target="_blank">
+                      {post.title}
+                    </a>
                   </h2>
                   <time className={styles['post-date']}>{formatDate}</time>
                   {post.tags.length > 0 ? (
