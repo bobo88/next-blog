@@ -25,7 +25,7 @@ export default function PostList({ posts }) {
               <article className={styles['article']}>
                 <header>
                   <h2 className={styles['post-title']}>
-                    <a href={`${post.href}`} target="_blank">
+                    <a href={post.link} target="_blank">
                       {post.title}
                     </a>
                   </h2>

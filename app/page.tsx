@@ -58,7 +58,7 @@ export default function Home() {
       tags: ['技术之外', '思维', '模型'],
       createdAt: '2018-06-18',
       title: 'PDCA 理论',
-      herf: 'https://fe.ycy88.com/beyond-tech/mental-model/21_pdca',
+      link: 'https://fe.ycy88.com/beyond-tech/mental-model/21_pdca',
       email: 'yuanboi88@163.com',
       summary: `PDCA：PDCA 是指 Plan（计划）、Do（实施）、Check（检查）、Act（纠正）这一循环，是一种持续改进的管理方法。PDCA 循环常被称为 Deming 循环，它源于质量管理领域，由质量管理专家 Edward Deming 提出，后来被广泛应用于各个管理领域。
 
@@ -70,7 +70,7 @@ export default function Home() {
       tags: ['技术之外', '路径依赖模型'],
       createdAt: '2019-02-18',
       title: '路径依赖模型',
-      href: 'https://fe.ycy88.com/beyond-tech/mental-model/19_path-dependency',
+      link: 'https://fe.ycy88.com/beyond-tech/mental-model/19_path-dependency',
       email: 'yuanboi88@163.com',
       summary: `有人做了，做的还可以，大家都跟着做，最后即使这个做法不是最优的，但是很难改变了。
       
@@ -86,7 +86,7 @@ export default function Home() {
       tags: ['规范｜团队', '管理'],
       createdAt: '2020-06-06',
       title: '规范建设',
-      href: 'https://fe.ycy88.com/keywords/standard/20_standard',
+      link: 'https://fe.ycy88.com/keywords/standard/20_standard',
       email: 'yuanboi88@163.com',
       summary: `规范建设：复杂的事情简单化，简单的事情标准化，标准的事情流程化，流程的事情自动化。
       
@@ -161,7 +161,7 @@ export default function Home() {
           <hr className={styles['search-post-hr']} />
 
           <div className={styles['post-list-wrap']}>
-            <PostList posts={filteredPosts} />
+            <PostList posts={allPostsData} />
           </div>
         </main>
 
