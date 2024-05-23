@@ -3,12 +3,19 @@
 import Image from 'next/image'
 import { FC, useEffect, useState } from 'react'
 import Header from './components/Header'
+import Head from 'next/head'
 import SearchBar from './components/SearchBar'
 import PostList from './components/PostList'
 import Footer from './components/Footer'
 import stylesLink from './styles/Links.module.css'
 import styleAni from './styles/AnimatePublic.module.css'
 import styles from './styles/Home.module.css'
+
+const metadata = {
+  title: '知行合一 - 首页',
+  description: 'ycy88官网',
+  keywords: 'V8程序, 前端博客小站 - JunF, 技术之外, 思维, 模型, Next'
+}
 
 export default function Home() {
   const linkIcon = (
@@ -46,11 +53,6 @@ export default function Home() {
     </svg>
   )
 
-  const [siteMetadata, setSiteMetadata] = useState({
-    name: 'ycy88',
-    title: 'abc',
-    logo: ''
-  })
   const [allPostsData, setAllPostsData] = useState([
     {
       id: 1,
@@ -149,78 +151,101 @@ export default function Home() {
     }
   ])
 
+  const [siteMetadata, setSiteMetadata] = useState({
+    name: '知行合一',
+    title: '知行合一 - 首页',
+    description: '这是知行合一网站的首页，涵盖了各种技术与思维模型的文章。',
+    keywords:
+      'V8程序, 前端博客小站 - JunF, 技术之外, 思维, 模型, Next, 知行合一, 技术博客, 思维模型, 前端开发, V8程序, JunF',
+    logo: ''
+  })
+
   useEffect(() => {
-    // xxx
+    // xx
   }, [])
 
   return (
-    <div>
-      <div className={styles['container']}>
-        <Header siteMetadata={siteMetadata} nav="home" />
-        <main className={styles['main']}>
-          <hr className={styles['search-post-hr']} />
+    <>
+      <head>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        <meta name="keywords" content={siteMetadata.keywords} />
+      </head>
 
-          <div className={styles['post-list-wrap']}>
-            <PostList posts={allPostsData} />
+      <body>
+        <div>
+          <div className={styles['container']}>
+            <Header siteMetadata={siteMetadata} nav="home" />
+            <main className={styles['main']}>
+              <hr className={styles['search-post-hr']} />
+
+              <div className={styles['post-list-wrap']}>
+                <PostList posts={allPostsData} />
+              </div>
+            </main>
+
+            <hr className={styles['search-post-hr']} />
+
+            <main
+              className={`${stylesLink['links-page-main']} ${styleAni['fade-in-top']}`}>
+              <div className={stylesLink['grid-wrap']}>
+                {allLinks.map((link, index) => {
+                  let description = link.website
+                  if (link.description) {
+                    if (link.description.length > 40) {
+                      description = link.description.substr(0, 40) + '...'
+                    } else {
+                      description = link.description
+                    }
+                  }
+                  return (
+                    // onClick={() => handleViewLinkItem(link.website)}
+                    <a
+                      key={link.id}
+                      href={link.website}
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      <div className={stylesLink['link-card']}>
+                        {link.picture ? (
+                          <img
+                            src={link.picture}
+                            alt={link.name}
+                            width={80}
+                            height={80}
+                            className={stylesLink['link-picture']}
+                          />
+                        ) : (
+                          linkIcon
+                        )}
+
+                        <div className={stylesLink['link-info-box']}>
+                          <h3 className={stylesLink['link-name']}>
+                            {link.name}
+                          </h3>
+
+                          {link.description ? (
+                            <p
+                              title={link.description}
+                              className={stylesLink['link-description']}>
+                              {description}
+                            </p>
+                          ) : (
+                            <p className={stylesLink['link-url']}>
+                              {link.website}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </a>
+                  )
+                })}
+              </div>
+            </main>
+
+            <Footer siteMetadata={siteMetadata} />
           </div>
-        </main>
-
-        <hr className={styles['search-post-hr']} />
-
-        <main
-          className={`${stylesLink['links-page-main']} ${styleAni['fade-in-top']}`}>
-          <div className={stylesLink['grid-wrap']}>
-            {allLinks.map((link, index) => {
-              let description = link.website
-              if (link.description) {
-                if (link.description.length > 40) {
-                  description = link.description.substr(0, 40) + '...'
-                } else {
-                  description = link.description
-                }
-              }
-              return (
-                // onClick={() => handleViewLinkItem(link.website)}
-                <a
-                  key={link.id}
-                  href={link.website}
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  <div className={stylesLink['link-card']}>
-                    {link.picture ? (
-                      <Image
-                        src={link.picture}
-                        alt={link.name}
-                        width={80}
-                        height={80}
-                        className={stylesLink['link-picture']}
-                      />
-                    ) : (
-                      linkIcon
-                    )}
-
-                    <div className={stylesLink['link-info-box']}>
-                      <h3 className={stylesLink['link-name']}>{link.name}</h3>
-
-                      {link.description ? (
-                        <p
-                          title={link.description}
-                          className={stylesLink['link-description']}>
-                          {description}
-                        </p>
-                      ) : (
-                        <p className={stylesLink['link-url']}>{link.website}</p>
-                      )}
-                    </div>
-                  </div>
-                </a>
-              )
-            })}
-          </div>
-        </main>
-
-        <Footer siteMetadata={siteMetadata} />
-      </div>
-    </div>
+        </div>
+      </body>
+    </>
   )
 }

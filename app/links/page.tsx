@@ -44,8 +44,12 @@ export default function Categories() {
   )
 
   const [siteMetadata, setSiteMetadata] = useState({
-    name: 'ycy88',
-    title: 'abc',
+    name: '知行合一',
+    title: '知行合一 - 友链',
+    description:
+      '这是知行合一网站的友链，涵盖了相关的技术博客网站（个人独立博客网站）。',
+    keywords:
+      'V8程序, 前端博客小站 - JunF, 技术之外, 思维, 模型, Next, 知行合一, 技术博客, 思维模型, 前端开发, V8程序, JunF',
     logo: '',
     shrink: '',
     postTitle: ''
@@ -107,61 +111,69 @@ export default function Categories() {
 
   return (
     <>
-      <Header siteMetadata={siteMetadata} nav="links" />
+      <head>
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+        <meta name="keywords" content={siteMetadata.keywords} />
+      </head>
 
-      <main
-        className={`${styles['links-page-main']} ${styleAni['fade-in-top']}`}>
-        <div className={styles['grid-wrap']}>
-          {allLinks.map((link, index) => {
-            let description = link.website
-            if (link.description) {
-              if (link.description.length > 40) {
-                description = link.description.substr(0, 40) + '...'
-              } else {
-                description = link.description
+      <body>
+        <Header siteMetadata={siteMetadata} nav="links" />
+
+        <main
+          className={`${styles['links-page-main']} ${styleAni['fade-in-top']}`}>
+          <div className={styles['grid-wrap']}>
+            {allLinks.map((link, index) => {
+              let description = link.website
+              if (link.description) {
+                if (link.description.length > 40) {
+                  description = link.description.substr(0, 40) + '...'
+                } else {
+                  description = link.description
+                }
               }
-            }
-            return (
-              // onClick={() => handleViewLinkItem(link.website)}
-              <a
-                key={link.id}
-                href={link.website}
-                target="_blank"
-                rel="noopener noreferrer">
-                <div className={styles['link-card']}>
-                  {link.picture ? (
-                    <img
-                      src={link.picture}
-                      alt={link.name}
-                      width={80}
-                      height={80}
-                      className={styles['link-picture']}
-                    />
-                  ) : (
-                    linkIcon
-                  )}
-
-                  <div className={styles['link-info-box']}>
-                    <h3 className={styles['link-name']}>{link.name}</h3>
-
-                    {link.description ? (
-                      <p
-                        title={link.description}
-                        className={styles['link-description']}>
-                        {description}
-                      </p>
+              return (
+                // onClick={() => handleViewLinkItem(link.website)}
+                <a
+                  key={link.id}
+                  href={link.website}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <div className={styles['link-card']}>
+                    {link.picture ? (
+                      <img
+                        src={link.picture}
+                        alt={link.name}
+                        width={80}
+                        height={80}
+                        className={styles['link-picture']}
+                      />
                     ) : (
-                      <p className={styles['link-url']}>{link.website}</p>
+                      linkIcon
                     )}
-                  </div>
-                </div>
-              </a>
-            )
-          })}
-        </div>
-      </main>
 
-      <Footer siteMetadata={siteMetadata} />
+                    <div className={styles['link-info-box']}>
+                      <h3 className={styles['link-name']}>{link.name}</h3>
+
+                      {link.description ? (
+                        <p
+                          title={link.description}
+                          className={styles['link-description']}>
+                          {description}
+                        </p>
+                      ) : (
+                        <p className={styles['link-url']}>{link.website}</p>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              )
+            })}
+          </div>
+        </main>
+
+        <Footer siteMetadata={siteMetadata} />
+      </body>
     </>
   )
 }
