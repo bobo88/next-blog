@@ -188,7 +188,7 @@ export default function Home() {
                   rel="noopener noreferrer">
                   <div className={stylesLink['link-card']}>
                     {link.picture ? (
-                      <img
+                      <Image
                         src={link.picture}
                         alt={link.name}
                         width={80}
