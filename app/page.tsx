@@ -10,6 +10,7 @@ import Footer from './components/Footer'
 import stylesLink from './styles/Links.module.css'
 import styleAni from './styles/AnimatePublic.module.css'
 import styles from './styles/Home.module.css'
+import { LINKS_LIST } from './config/common'
 
 const metadata = {
   title: '知行合一 - 首页',
@@ -100,56 +101,7 @@ export default function Home() {
   ])
   const [filteredPosts, setFilteredPosts] = useState(allPostsData)
 
-  const [allLinks, setAllLinks] = useState([
-    {
-      id: 1,
-      name: 'V8程序',
-      website: 'https://fe.ycy88.com',
-      tags: ['技术之外', '思维', '模型'],
-      createdAt: '2018-06-18',
-      email: 'yuanboi88@163.com',
-      description: `涵盖技术团队规范、全栈技能、算法、主流技术和团队管理以及工作的思考和方法论总结。`,
-      author: 'Bob',
-      picture: 'https://fe.ycy88.com/images/yb.png',
-      postTitle: ''
-    },
-    {
-      id: 2,
-      name: '前端博客小站 - JunF',
-      website: 'https://docs.ycy88.com',
-      tags: ['技术之外', '思维', '模型'],
-      createdAt: '2018-06-18',
-      email: '695834871@qq.com',
-      description: `涵盖技术团队规范、前端主流技术（VUE/React），涉及PC/小程序/Node等。`,
-      author: 'JunF',
-      picture: 'https://docs.ycy88.com/images/ljf-2.png',
-      postTitle: ''
-    },
-    {
-      id: 3,
-      name: 'React网站',
-      website: 'http://yb.ycy88.com/',
-      tags: ['技术之外', '思维', '模型'],
-      createdAt: '2018-06-18',
-      email: 'yuanboi88@163.com',
-      description: `React网站，包含JS网页运行模拟器等功能。`,
-      author: 'Bob',
-      picture: '',
-      postTitle: ''
-    },
-    {
-      id: 4,
-      name: '原型设计草稿箱',
-      website: 'http://frontend.ycy88.com/',
-      tags: ['技术之外', '思维', '模型'],
-      createdAt: '2018-06-18',
-      email: 'yuanboi88@163.com',
-      description: `原型设计草稿箱，可能需要权限才能访问。`,
-      author: 'Bob',
-      picture: '',
-      postTitle: ''
-    }
-  ])
+  const [allLinks, setAllLinks] = useState([...LINKS_LIST])
 
   const [siteMetadata, setSiteMetadata] = useState({
     name: '知行合一',
@@ -176,15 +128,6 @@ export default function Home() {
         <div>
           <div className={styles['container']}>
             <Header siteMetadata={siteMetadata} nav="home" />
-            <main className={styles['main']}>
-              <hr className={styles['search-post-hr']} />
-
-              <div className={styles['post-list-wrap']}>
-                <PostList posts={allPostsData} />
-              </div>
-            </main>
-
-            <hr className={styles['search-post-hr']} />
 
             <main
               className={`${stylesLink['links-page-main']} ${styleAni['fade-in-top']}`}>
@@ -241,6 +184,16 @@ export default function Home() {
                 })}
               </div>
             </main>
+
+            <main className={styles['main']}>
+              <hr className={styles['search-post-hr']} />
+
+              <div className={styles['post-list-wrap']}>
+                <PostList posts={allPostsData} />
+              </div>
+            </main>
+
+            <hr className={styles['search-post-hr']} />
 
             <Footer siteMetadata={siteMetadata} />
           </div>
