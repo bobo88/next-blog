@@ -1,7 +1,7 @@
 export const LINKS_LIST = [
   {
     id: 1,
-    name: 'V8程序',
+    name: 'V8程序（博客）',
     website: 'https://fe.ycy88.com',
     tags: ['技术之外', '思维', '模型'],
     createdAt: '2018-06-18',
@@ -13,7 +13,7 @@ export const LINKS_LIST = [
   },
   {
     id: 2,
-    name: '前端博客小站 - JunF',
+    name: '前端博客小站 - JunF（博客）',
     website: 'https://docs.ycy88.com',
     tags: ['技术之外', '思维', '模型'],
     createdAt: '2018-06-18',

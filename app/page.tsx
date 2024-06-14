@@ -170,13 +170,26 @@ export default function Home() {
                             <p
                               title={link.description}
                               className={stylesLink['link-description']}>
+                              <span>简介：</span>
                               {description}
                             </p>
                           ) : (
+                            ''
+                          )}
+
+                          {link.website ? (
                             <p className={stylesLink['link-url']}>
+                              <span>网址：</span>
                               {link.website}
                             </p>
+                          ) : (
+                            ''
                           )}
+
+                          <p className={stylesLink['link-author']}>
+                            <span>作者：</span>
+                            {link.author} ｜ {link.email}
+                          </p>
                         </div>
                       </div>
                     </a>

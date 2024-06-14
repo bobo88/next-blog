@@ -111,11 +111,26 @@ export default function Categories() {
                         <p
                           title={link.description}
                           className={styles['link-description']}>
+                          <span>简介：</span>
                           {description}
                         </p>
                       ) : (
-                        <p className={styles['link-url']}>{link.website}</p>
+                        ''
                       )}
+
+                      {link.website ? (
+                        <p className={styles['link-url']}>
+                          <span>网址：</span>
+                          {link.website}
+                        </p>
+                      ) : (
+                        ''
+                      )}
+
+                      <p className={styles['link-author']}>
+                        <span>作者：</span>
+                        {link.author} ｜ {link.email}
+                      </p>
                     </div>
                   </div>
                 </a>
