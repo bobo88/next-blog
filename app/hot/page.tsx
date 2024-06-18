@@ -9,6 +9,13 @@ import styleAni from '../styles/AnimatePublic.module.css'
 import { LINKS_LIST } from '../config/common'
 import { fetchHotListData } from '../../services/api'
 
+interface LinkType {
+  id: number
+  url: string
+  [key: string]: any
+  // 其他属性...
+}
+
 export default function Categories() {
   const [siteMetadata, setSiteMetadata] = useState({
     name: '知行合一',
@@ -21,13 +28,15 @@ export default function Categories() {
     shrink: '',
     postTitle: ''
   })
-  const [allLinks, setAllLinks] = useState([])
+
+  const [allLinks, setAllLinks] = useState<LinkType[]>([])
+
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchLinks = async () => {
       try {
-        const response = await fetch('http://ycy88.com/apis/hot/all')
+        const response = await fetch('https://ycy88.com/apis/hot/all')
         const data = await response.json()
         setAllLinks(data.data)
       } catch (error) {
@@ -40,8 +49,8 @@ export default function Categories() {
     fetchLinks()
   }, [])
 
-  const formatDate = (dateString) => {
-    const options = {
+  const formatDate = (dateString: any) => {
+    const options: any = {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -72,16 +81,17 @@ export default function Categories() {
             <div className={styles['link-grid']}>
               {allLinks &&
                 allLinks.map((link, index) => {
-                  let description = link.website
-                  if (link.description) {
-                    if (link.description.length > 40) {
-                      description = link.description.substr(0, 40) + '...'
-                    } else {
-                      description = link.description
-                    }
-                  }
+                  // let description = link.description
+                  // if (link.description) {
+                  //   if (link.description.length > 40) {
+                  //     description = link.description.substr(0, 40) + '...'
+                  //   } else {
+                  //     description = link.description
+                  //   }
+                  // }
                   return (
                     // onClick={() => handleViewLinkItem(link.website)}
+                    //@ts-ignore
                     <a
                       key={link.id}
                       href={link.url}
