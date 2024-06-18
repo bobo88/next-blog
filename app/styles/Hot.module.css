@@ -1,0 +1,78 @@
+.link-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 居中对齐 */
+}
+
+.link-card {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 16px 0; /* 上下间距16px */
+  width: 80%;
+  border-bottom: 1px solid #ddd;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s ease;
+  /* max-width: 600px;  */
+  /* 可选：限制卡片的最大宽度 */
+}
+
+.link-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link-picture {
+  width: 120px; /* 调整图片宽度 */
+  height: 120px; /* 调整图片高度 */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.link-info-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-title {
+  font-size: 16px !important;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.link-description,
+.link-description p,
+.link-description span {
+  font-size: 14px !important;
+  margin-bottom: 0.5rem;
+}
+
+.link-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.link-author,
+.link-date {
+  font-size: 12px !important;
+  color: #666;
+}
+
+/* Center the loading text */
+.loading {
+  margin: 0 auto;
+  font-size: 16px;
+  margin-top: 2rem;
+  text-align: center;
+  color: #666;
+}
