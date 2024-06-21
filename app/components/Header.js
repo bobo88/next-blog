@@ -56,12 +56,12 @@ export default function Header({ siteMetadata, nav }) {
                 }`}>
                 <Link href="/">首页</Link>
               </li>
-              <li
+              {/* <li
                 className={`${styles['mobile-ul-li']} ${
                   nav === 'hot' ? styles['selected-nav'] : ''
                 }`}>
                 <Link href="/hot">推荐文章🔥</Link>
-              </li>
+              </li> */}
               <li
                 className={`${styles['mobile-ul-li']} ${
                   nav === 'links' ? styles['selected-nav'] : ''
@@ -81,12 +81,12 @@ export default function Header({ siteMetadata, nav }) {
                 <div className={styles['menu-bottom-bar']}></div>
               ) : null}
             </li>
-            <li className={styles['ul-li']}>
+            {/* <li className={styles['ul-li']}>
               <Link href="/hot">推荐文章🔥</Link>
               {nav === 'hot' ? (
                 <div className={styles['menu-bottom-bar']}></div>
               ) : null}
-            </li>
+            </li> */}
             <li className={styles['ul-li']}>
               <Link href="/links">友链</Link>
               {nav === 'links' ? (
