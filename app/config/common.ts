@@ -1,7 +1,7 @@
 export const LINKS_LIST = [
   {
     id: 1,
-    name: '🔥个人博客：V8程序（强烈推荐）',
+    name: '🔥点我～个人博客：V8程序（强烈推荐）',
     website: 'https://fe.ycy88.com',
     tags: ['技术之外', '思维', '模型'],
     createdAt: '2018-06-18',
@@ -14,7 +14,7 @@ export const LINKS_LIST = [
   },
   {
     id: 2,
-    name: '🔥个人博客：前端博客小站（强烈推荐）',
+    name: '🔥点我～个人博客：前端博客小站（强烈推荐）',
     website: 'https://docs.ycy88.com',
     tags: ['技术之外', '思维', '模型'],
     createdAt: '2018-06-18',
