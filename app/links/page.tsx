@@ -91,7 +91,10 @@ export default function Categories() {
                   href={link.website}
                   target="_blank"
                   rel="noopener noreferrer">
-                  <div className={styles['link-card']}>
+                  <div
+                    className={`${styles['link-card']} ${
+                      link.isHot ? styles['hot-class'] : ''
+                    }`}>
                     {link.picture ? (
                       <img
                         src={link.picture}

@@ -31,6 +31,9 @@
   padding-left: 1rem;
   cursor: pointer;
 }
+.hot-class {
+  border: 1px solid #069;
+}
 
 [data-theme='dark'] .link-card {
   background-color: rgb(61, 61, 61);
@@ -41,6 +44,7 @@
   margin: 0;
 }
 .link-info-box {
+  padding-top: 6px;
   width: 25rem;
   text-align: center;
   align-self: flex-start;
@@ -63,6 +67,15 @@
   padding: 0.5rem 0;
   margin: 0;
   text-align: left;
+}
+
+.link-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto; /* 根据需要调整 */
 }
 
 /* .link-url {

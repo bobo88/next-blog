@@ -148,7 +148,10 @@ export default function Home() {
                       href={link.website}
                       target="_blank"
                       rel="noopener noreferrer">
-                      <div className={stylesLink['link-card']}>
+                      <div
+                        className={`${stylesLink['link-card']} ${
+                          link.isHot ? stylesLink['hot-class'] : ''
+                        }`}>
                         {link.picture ? (
                           <img
                             src={link.picture}

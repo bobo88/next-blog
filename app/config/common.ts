@@ -9,7 +9,8 @@ export const LINKS_LIST = [
     description: `涵盖技术团队规范、全栈技能、算法、主流技术和团队管理以及工作的思考和方法论总结。`,
     author: 'Bob',
     picture: 'https://fe.ycy88.com/images/yb.png',
-    postTitle: ''
+    postTitle: '',
+    isHot: true
   },
   {
     id: 2,
@@ -21,7 +22,8 @@ export const LINKS_LIST = [
     description: `涵盖技术团队规范、前端主流技术（VUE/React），涉及PC/小程序/Node等。`,
     author: 'JunF',
     picture: 'https://docs.ycy88.com/images/ljf-2.png',
-    postTitle: ''
+    postTitle: '',
+    isHot: true
   },
   {
     id: 3,
