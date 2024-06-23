@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styles from '../styles/Hot.module.css'
 import styleAni from '../styles/AnimatePublic.module.css'
-import { LINKS_LIST } from '../config/common'
+import { LINKS_LIST, HOT_ART_LIST } from '../config/common'
 import { fetchHotListData } from '../../services/api'
 
 interface LinkType {
@@ -34,19 +34,8 @@ export default function Categories() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const fetchLinks = async () => {
-      try {
-        const response = await fetch('https://ycy88.com/apis/hot/all')
-        const data = await response.json()
-        setAllLinks(data.data)
-      } catch (error) {
-        console.error('Error fetching links:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchLinks()
+    setAllLinks(HOT_ART_LIST)
+    setLoading(false)
   }, [])
 
   const formatDate = (dateString: any) => {
