@@ -1,14 +1,14 @@
 // next.config.js
-const { createProxyMiddleware } = require('http-proxy-middleware')
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = {
-  output: 'export',
+  output: "export",
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'https://www.cnuseful.com/api/:path*' // 后端服务器地址
-      }
-    ]
-  }
-}
+        source: "/api/:path*",
+        destination: "https://www.ycy88.com/api/:path*", // 后端服务器地址
+      },
+    ];
+  },
+};
